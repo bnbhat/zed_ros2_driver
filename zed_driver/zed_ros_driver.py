@@ -1,7 +1,9 @@
 #-----------------------------------------------------------------------------------
-# Project: Arc
-# Authors: <NAME> (<EMAIL>) and <NAME>
-# Description: <DESCRIPTION>
+# file: zed_ros_driver.py
+# description: ROS2 Driver for ZED Camera
+# author: Balachandra Bhat <bnbhat311@gmail.com>
+# created: 2023-09-23
+# modified: 2023-09-23
 #-----------------------------------------------------------------------------------
 
 import argparse
@@ -189,41 +191,6 @@ class ZedDriver(Node):
             self.zed.disable_positional_tracking()
             self.zed.close()
             cv2.destroyAllWindows()
-
-#---------->  Not used
-class ZedDriverNode(Node):
-    def __init__(self, options):
-        super().__init__('zed_ros_driver')
-        self.image_publisher = self.create_publisher(Image, '/zed/image', 10)
-        self.body_publisher = self.create_publisher(ArcHumanPose, "/arc_rt_human_pose", 1) 
-        self.bridge = CvBridge()
-        self.zed_driver = ZedDriver(options)
-
-    def publish_image(self, image):
-        try:
-            print(type(image))
-            image_msg = self.bridge.cv2_to_imgmsg(image, encoding="bgr8")
-            self.image_publisher.publish(image_msg)
-        except Exception as e:
-            print('Error publishing image:', e)
-
-    
-    def publish_keypoints(self, keypoints):
-        try:
-            msg = ArcHumanPose()
-            msg.type = 18
-            msg.time_stamp = self.get_clock().now().to_msg() 
-            msg.key_points = keypoints
-            self.body_publisher.publish(msg)
-        except Exception as e:
-            print('Error publishing image:', e)     
-
-    def run(self):
-        while(rclpy.ok()):
-            image, body = self.zed_driver.grab()
-            if body is not None:
-                self.publish_keypoints(body.keypoint)
-            self.publish_image(image)
 
 def arg_parser():
     parser = argparse.ArgumentParser()

@@ -1,3 +1,11 @@
+#-----------------------------------------------------------------------------------
+# file: utils.py
+# description: utils for ZED Driver
+# author: Balachandra Bhat <bnbhat311@gmail.com>
+# created: 2023-09-22
+# last modified: 2023-09-23
+#-----------------------------------------------------------------------------------
+
 import time
 import pyzed.sl as sl
 

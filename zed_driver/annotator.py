@@ -1,9 +1,9 @@
 #------------------------------------------------------------------------------
-# File: annotator.py
-# Description: Annotator class for ZED camera
-# Created: 2023-09-23
-# Modified: 2023-09-23
-# Author: Balachandra Bhat <bnbhat311@gmail.com>
+# file: annotator.py
+# description: Annotator class for ZED camera
+# author: Balachandra Bhat <bnbhat311@gmail.com>
+# created: 2023-09-23
+# modified: 2023-09-23
 #------------------------------------------------------------------------------
 
 import cv2
