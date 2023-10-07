@@ -1,2 +1,17 @@
-resolution: "HD720"
-skeleton_type: "BODY_34"
+resolution: HD720 
+#Options: HD720, HD1080, VGA, WVGA
+
+skeleton_type: BODY_34 
+#Options: BODY18, BODY_34, BODY_38
+
+detection_model: HUMAN_BODY_FAST
+#Options: HUMAN_BODY_FAST, HUMAN_BODY_MEDIUM, HUMAN_BODY_ACCURATE
+
+detection_confidence: 40
+#Options: 0-100
+
+#Camera to World Transform
+Tcw: [[0.368484,   0.532548,   -0.76354,   0.7  ],
+      [0.92846,   -0.14931,     0.34227,   0.303],
+      [0.067548,  -0.834014,   -0.55005,   1.059],
+      [0,          0,           0,         1    ]]
