@@ -9,7 +9,7 @@
 import cv2
 import numpy as np
 import pyzed.sl as sl
-from utils import *
+from zed_driver.utils import *
 
 
 class Annotator(object):
